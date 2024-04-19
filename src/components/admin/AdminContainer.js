@@ -3,6 +3,8 @@ import {NavLink, Route} from "react-router-dom";
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import MenuCategoryContainer from "./menu-category/MenuCategoryContainer";
+import DiningTableContainer from "./dining-table/DiningTableContainer";
+import MenuContainer from "./menu/MenuContainer";
 import Topbar from './Topbar';
 
 import '../../assets/css/App.scss';
@@ -61,8 +63,8 @@ export class AdminContainer extends Component {
 
                 <div className="right-wrapper">
                     <Topbar {...this.props}/>
-                    {/* <Route path="/admin/menu" component={MenuContainer}/> */}
-                    {/* <Route path="/admin/dining-table" component={DiningTableContainer}/> */}
+                    <Route path="/admin/menu" component={MenuContainer}/>
+                    <Route path="/admin/dining-table" component={DiningTableContainer}/>
                     <Route path="/admin/menu-category" component={MenuCategoryContainer}/>
                     {/* <Route path="/admin/report" component={ReportContainer}/> */}
                 </div>
