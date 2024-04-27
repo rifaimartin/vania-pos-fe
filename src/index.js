@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import {createStore} from 'redux'
 import AdminContainer from "./components/admin/AdminContainer";
+import CashierContainer from './components/cashier/CashierContainer';
 import {reducers} from "./reducers/CombineReducers";
 
 // import 'font-awesome/css/font-awesome.min.css';
@@ -17,7 +18,9 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route  exatch path="/" component={AdminContainer}/>
+                <Route exact path="/" component={CashierContainer} />
+                <Route path="/:type(foods|drinks|dining-table|menu-category)" component={CashierContainer} />
+                <Route path="/admin" component={AdminContainer}/>
             </div>
         </BrowserRouter>
     </Provider>,
