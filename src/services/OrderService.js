@@ -1,19 +1,22 @@
+import { BASE_URL } from '../constants/api';
+
+
 export async function getOrderById(id){
-    return await fetch(`http://localhost:9090/order/${id}`, {method: "GET"})
+    return await fetch(`${BASE_URL}/order/${id}`, {method: "GET"})
         .then((response) => {
             return response.json()
         });
 }
 
 export async function getUnpaidOrder(){
-    return await fetch(`http://localhost:9090/unpaid-order/`, {method: "GET"})
+    return await fetch(`${BASE_URL}/unpaid-order/`, {method: "GET"})
         .then((response) => {
             return response.json()
         });
 }
 export async function submitOrder(payload, orderDetails) {
     const order = {...payload, orderDetails: orderDetails};
-    return await fetch("http://localhost:9090/order",
+    return await fetch(`${BASE_URL}/order`,
         {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
