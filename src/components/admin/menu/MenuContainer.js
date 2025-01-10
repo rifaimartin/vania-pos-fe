@@ -1,6 +1,7 @@
 import React from "react";
 import MenuForm from "./MenuForm";
 import {connect} from "react-redux";
+import { BASE_URL } from '../../../constants/api';
 import Swal from 'sweetalert2'
 import {deleteMenuById, fetchMenu, getMenuById, submitMenu} from "../../../services/MenuService";
 import {editMenuForm, fetchMenuSuccess, resetMenuForm} from "../../../actions/MenuAction";
@@ -78,7 +79,7 @@ class MenuContainer extends React.Component {
     handleEditData = async (id) => {
         const data = await getMenuById(id);
         if (!(data === undefined)) {
-            this.props.dispatch({...editMenuForm, payload: data, imageUrl: `http://localhost/menu-image/${id}.jpg`})
+            this.props.dispatch({...editMenuForm, payload: data, imageUrl: `${BASE_URL}/menu-image/${id}.jpg`})
         }
     };
 

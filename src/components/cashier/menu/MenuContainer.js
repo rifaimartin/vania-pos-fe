@@ -1,6 +1,9 @@
 import React from 'react';
 import '../../../assets/css/MenuItem.scss';
 
+import { BASE_URL } from '../../../constants/api'; 
+
+
 import tick from '../../../assets/images/tick.png'
 import {connect} from "react-redux";
 import pizza from '../../../assets/images/Pizza.jpg';
@@ -12,7 +15,7 @@ class MenuContainer extends React.Component {
         return (
             <div onClick={() => {this.handleClick(this.props)}}
                  className={this.handleMenuIsExist(this.props.idMenu) ? 'FoodItemBox selected' : 'FoodItemBox'}>
-                <img className="itemImage" src={`http://localhost/menu-image/${this.props.idMenu}.jpg`} alt="Menu Item Images"/>
+                <img className="itemImage" src={`${BASE_URL}/menu-image/${this.props.idMenu}.jpg`} alt="Menu Item Images"/>
                 {this.handleMenuIsExist(this.props.idMenu) ?
                     <label>
                         <img src={tick} alt="Menu Item"/>
